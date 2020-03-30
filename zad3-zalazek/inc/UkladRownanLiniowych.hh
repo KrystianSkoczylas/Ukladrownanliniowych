@@ -3,16 +3,26 @@
 
 #include <iostream>
 
+#include "Macierz.hh"
 
 /*
  *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
  *  i jakie ma glowne cechy.
  */
 class UkladRownanLiniowych {
+  Macierz A;
+  Wektor B;
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich pol i metod prywatnych
    */
   public:
+  UkladRownanLiniowych();
+  UkladRownanLiniowych(Macierz AA, Wektor BB);
+  Wektor Oblicz(); // Oblicz_Gauss, Oblicz_Cramer
+  void zmien_macierz(Macierz M);
+  Macierz wez_macierz();
+  void zmien_wektor(Wektor M);
+  Wektor wez_wektor();
   /*
    *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
    */    
