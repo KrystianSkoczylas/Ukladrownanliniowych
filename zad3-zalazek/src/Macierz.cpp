@@ -7,7 +7,7 @@
  *  niz dwie linijki.
  *  Mniejsze metody mozna definiwac w ciele klasy.
  */
-std::istream& operator >> (std::istream &Strm, Macierz &Mac)
+std::istream& operator >> (std::istream &Strm, Macierz &Mac) /*wczytanie macierzy */
 {
   for(int i=0;i<ROZMIAR;++i)
     {
@@ -16,42 +16,54 @@ std::istream& operator >> (std::istream &Strm, Macierz &Mac)
   return Strm;
 }
 
-std::ostream& operator << (std::ostream &Strm, const Macierz &Mac)
+std::ostream& operator << (std::ostream &Strm, const Macierz &Mac)/*wyswietlenie macierzy */
 {
-  
+  for(int i=0;i<ROZMIAR;++i)
+    {
+      Strm<<Mac[i]<<" "<<std::endl;
+    }
+  return Strm;
 }
 
-const Macierz & operator + (const Macierz & W)
+const Macierz & Macierz::operator + (const Macierz & W) const
 { 
   
 }
 
-const Macierz & operator - (const Macierz & W)
+const Macierz & Macierz::operator - (const Macierz & W) const
 {
   
 }
 
-const Macierz & operator * (const Macierz & W)
+const Macierz & Macierz::operator * (const Macierz & W) const
 {
  
 }
 
-const Wektor & operator * (const Wektor & W)
+const Wektor & Macierz::operator * (const Wektor & W) const
 {
  
 }
 
-const Macierz & transpozycja()
+const Macierz & Macierz::transpozycja() const
 {
-  
+  Macierz wyn;
+  for(int i=0;i<ROZMIAR;++i)
+    {
+      for(int j=0;j<ROZMIAR;++j)
+	{
+	 wyn[i][j]=tab[j][i];
+	}
+    }
+  return wyn;
 }
 
-const Macierz & odwrotnosc()
+const Macierz & Macierz::odwrotnosc() const
 {
 
 }
 
-double Wyznacznik()
+double Macierz::Wyznacznik()const
 {
  
 }

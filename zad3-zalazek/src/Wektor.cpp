@@ -22,14 +22,15 @@ std::ostream& operator << (std::ostream &Strm, const Wektor &Wek)
 double Wektor:: dlugosc() const
 {
   double wyn=0;
-  for (int i=0;i<ROZMIAR;++i) {
-    wyn += tab[i] * tab[i]; /*tutaj automatycznie wstawiane jest this */
-    //wyn += this->tab[i] * this->tab[i]; /*w przypadku przeslaniania zmeinnych trzeba recznie this*/
-  }
+  for (int i=0;i<ROZMIAR;++i)
+    {
+      wyn += tab[i] * tab[i]; /*tutaj automatycznie wstawiane jest this */
+      //wyn += this->tab[i] * this->tab[i]; /*w przypadku przeslaniania zmeinnych trzeba recznie this*/
+    }
   return sqrt(wyn);
 }
 
-double Wektor::operator * (const Wektor & W2) const
+double Wektor::operator * (const Wektor & W2) const /*mnozenie wektorow iloczyn skalarny */
 {
   double wyn;
   for (int i=0;i<ROZMIAR;++i) {
@@ -39,9 +40,35 @@ double Wektor::operator * (const Wektor & W2) const
   return wyn;
 }
 
-const Wektor & operator + (const Wektor & W2)
+Wektor Wektor::operator * (double skalar) const /*mnozenie wektora przez liczbe */
 {
-  
+  Wektor wyn;
+  for(int i=0;i<ROZMIAR;++i)
+    {
+      wyn[i]=tab[i]*skalar;
+    }
+  return wyn;
+}
+
+Wektor operator * (double skalar, const Wektor & W2) /*mnozenie liczby przez wektor */
+{
+  Wektor wyn;
+  for(int i=0;i<ROZMIAR;++i)
+    {
+      wyn[i]=skalar*W2[i];
+    }
+  return wyn;
+}
+
+
+const Wektor & Wektor::operator + (const Wektor & W2) const /*dodawanie wektorow */
+{//blad
+  Wektor wyn;
+  for(int i=0;i<ROZMIAR;++i)
+    {
+      wyn[i]=tab[i]+W2[i];
+    }
+  return wyn;
 }
 
 const Wektor & operator - (const Wektor & W2)
@@ -49,7 +76,15 @@ const Wektor & operator - (const Wektor & W2)
  
 }
 
-Wektor iloczyn_wektorowy (Wektor & W1,Wektor & W2)
+Wektor iloczyn_wektorowy (Wektor & W1,Wektor & W2)/*jak dla przypadku ogolnego? */ 
 {
-  
+  Wektor wyn;
+  /* for(int i=0;i<ROZMIAR;++i)
+    {
+      wyn[i]+=W1[i]*W2[i];
+      }*/
+  wyn[0]=W1[1]*W2[2]-W1[2]*W2[1];
+  wyn[1]=W1[0]*W2[2]-W1[2]*W2[0];
+  wyn[2]=W1[0]*W2[1]-W1[1]*W2[0];
+  return wyn;
 }

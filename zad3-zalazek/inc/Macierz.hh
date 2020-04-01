@@ -35,9 +35,9 @@ class Macierz {
   double Wyznacznik() const; 
 };
 
-std::istream& operator >> (std::istream &Strm, Macierz &Mac);
+std::istream& operator >> (std::istream &Strm, Macierz &Mac);//OK
 
-std::ostream& operator << (std::ostream &Strm, const Macierz &Mac);
+std::ostream& operator << (std::ostream &Strm, const Macierz &Mac);//OK
 
 
 #endif
