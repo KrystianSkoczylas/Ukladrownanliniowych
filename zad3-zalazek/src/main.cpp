@@ -34,6 +34,8 @@ int main()
   cout<<M1;
   cin>>M2;
   cout<<M2;
-  cout<<"transpozycja macierzy"<<M2.transpozycja()<<endl;
+  //cout<<"dodawanie macierzy"<<M1+M2<<endl;
+  //cout<<"transpozycja macierzy"<<M2.transpozycja()<<endl;
+  cout<<"wyznacznik "<<M1.Wyznacznik()<<endl;
 }
 

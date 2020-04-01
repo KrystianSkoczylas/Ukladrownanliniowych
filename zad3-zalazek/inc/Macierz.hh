@@ -28,7 +28,7 @@ class Macierz {
   const Macierz & operator - (const Macierz & W) const; 
   const Macierz & operator * (const Macierz & W) const; 
   const Wektor & operator * (const Wektor & W) const;
-
+  
   const Macierz & transpozycja() const;
   const Macierz & odwrotnosc() const;
   

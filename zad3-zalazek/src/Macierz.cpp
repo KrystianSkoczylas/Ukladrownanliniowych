@@ -26,8 +26,16 @@ std::ostream& operator << (std::ostream &Strm, const Macierz &Mac)/*wyswietlenie
 }
 
 const Macierz & Macierz::operator + (const Macierz & W) const
-{ 
-  
+{ //nie dziala
+  Macierz wyn;
+  for(int i=0;i<ROZMIAR;++i)
+    {
+      for(int j=0;j<ROZMIAR;++j)
+	{
+	  wyn[i][j]=tab[i][j]+W[i][j];
+	}
+    }
+  return wyn;
 }
 
 const Macierz & Macierz::operator - (const Macierz & W) const
@@ -46,7 +54,7 @@ const Wektor & Macierz::operator * (const Wektor & W) const
 }
 
 const Macierz & Macierz::transpozycja() const
-{
+{//nie dziala
   Macierz wyn;
   for(int i=0;i<ROZMIAR;++i)
     {
@@ -64,6 +72,18 @@ const Macierz & Macierz::odwrotnosc() const
 }
 
 double Macierz::Wyznacznik()const
-{
- 
+{double wyn;
+  if(ROZMIAR==1)
+    {return tab[ROZMIAR][ROZMIAR]; }
+  else//wzor na wyznacznik ?
+    {
+      for(int i=0;i<ROZMIAR;++i)
+	{
+	  for(int j=0;j<ROZMIAR;++j)
+	    {	
+	      wyn+=tab[i][j];
+	    }
+	}
+    }
+  return wyn;
 }
