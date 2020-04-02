@@ -60,9 +60,9 @@ Wektor operator * (double skalar, const Wektor & W2) /*mnozenie liczby przez wek
   return wyn;
 }
 
-
-const Wektor & Wektor::operator + (const Wektor & W2) const /*dodawanie wektorow */
-{//blad
+//const Wektor & Wektor::operator + (const Wektor & W2) const
+const Wektor  Wektor::operator + (const Wektor & W2) const /*dodawanie wektorow */
+{//dziala bez &
   Wektor wyn;
   for(int i=0;i<ROZMIAR;++i)
     {
@@ -70,21 +70,30 @@ const Wektor & Wektor::operator + (const Wektor & W2) const /*dodawanie wektorow
     }
   return wyn;
 }
-
-const Wektor & operator - (const Wektor & W2)
+//const Wektor &  Wektor::operator - (const Wektor & W2)
+const Wektor  Wektor::operator - (const Wektor & W2) const /*odejmowanie wektorow */
 {
- 
+ Wektor wyn;
+  for(int i=0;i<ROZMIAR;++i)
+    {
+      wyn[i]=tab[i]-W2[i];
+    }
+  return wyn;
 }
 
 Wektor iloczyn_wektorowy (Wektor & W1,Wektor & W2)/*jak dla przypadku ogolnego? */ 
 {
   Wektor wyn;
-  /* for(int i=0;i<ROZMIAR;++i)
+  /*for(int i=0;i<ROZMIAR;++i)
     {
-      wyn[i]+=W1[i]*W2[i];
-      }*/
+      fot(int j=0;j<ROZMIAR;++j)
+	{
+	  for(int k=ROZMIAR-1;k>ROZMIAR;--k)
+	    wyn[i]+=W1[i]*W2[k]-W1[k]*W2[];
+	}
+	}*/
   wyn[0]=W1[1]*W2[2]-W1[2]*W2[1];
-  wyn[1]=W1[0]*W2[2]-W1[2]*W2[0];
+  wyn[1]=-W1[0]*W2[2]+W1[2]*W2[0];
   wyn[2]=W1[0]*W2[1]-W1[1]*W2[0];
   return wyn;
 }

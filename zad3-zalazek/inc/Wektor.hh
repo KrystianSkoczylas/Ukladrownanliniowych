@@ -26,10 +26,10 @@ public:
   };
   
   double dlugosc() const; //OK
-  double operator * (const Wektor & W2) const;//OK
+  double operator * (const Wektor & W2) const;//OK iloczyn skalarny
   Wektor operator * (double skalar) const; // W * 2 OK
-  const Wektor & operator + (const Wektor & W2) const;
-  const Wektor & operator - (const Wektor & W2) const;
+  const Wektor  operator + (const Wektor & W2) const;//OK bez &
+  const Wektor  operator - (const Wektor & W2) const;//OK bez &
 };
 
 Wektor operator * (double skalar, const Wektor & W2) ; // 3 * W funkcja poza klasa OK

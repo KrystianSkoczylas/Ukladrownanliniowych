@@ -24,15 +24,15 @@ class Macierz {
     return tab[ind];
   };
   
-  const Macierz & operator + (const Macierz & W) const; 
-  const Macierz & operator - (const Macierz & W) const; 
-  const Macierz & operator * (const Macierz & W) const; 
-  const Wektor & operator * (const Wektor & W) const;
+  const Macierz  operator + (const Macierz & W) const;//OK bez & 
+  const Macierz  operator - (const Macierz & W) const;//OK bez & 
+  const Macierz  operator * (const Macierz & W) const; //OK bez & macierz razy macierz
+  const Wektor  operator * (const Wektor & W) const;//OK bez & macierz razy wektor
   
-  const Macierz & transpozycja() const;
-  const Macierz & odwrotnosc() const;
+  const Macierz  transpozycja() const;//OK bez &
+  const Macierz & odwrotnosc() const;//wzor i wyznacznik ?
   
-  double Wyznacznik() const; 
+  double Wyznacznik() const;//wzor ? 
 };
 
 std::istream& operator >> (std::istream &Strm, Macierz &Mac);//OK

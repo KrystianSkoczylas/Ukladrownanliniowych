@@ -25,8 +25,9 @@ int main()
   cout << "iloczyn skalarny: " << W * W4 << endl;
   cout<<"mnozenie wektora przez liczbe "<<a<<" :"<<W4*a<<endl;
   cout<<"mnozenie liczby "<<a<<" przez wektor :"<<a*W4<<endl;
-  //cout<<"dodanie wektorow"<<W+W4<<endl;
-  cout<<"iloczyn wektorowy "<<iloczyn_wektorowy(W,W4)<<endl;
+  cout<<"dodanie wektorow "<<W+W4<<endl;
+  cout<<"odejmowanie wektorow "<<W-W4<<endl;
+  cout<<"iloczyn wektorowy ale3X3 "<<iloczyn_wektorowy(W,W4)<<endl;
   
   M1[0][1]=4;
   M1[1][1]=1;
@@ -34,8 +35,16 @@ int main()
   cout<<M1;
   cin>>M2;
   cout<<M2;
-  //cout<<"dodawanie macierzy"<<M1+M2<<endl;
-  //cout<<"transpozycja macierzy"<<M2.transpozycja()<<endl;
-  cout<<"wyznacznik "<<M1.Wyznacznik()<<endl;
+  cout<<"dodawanie macierzy"<<endl;
+  cout<<M1+M2<<endl;
+  cout<<"odejmowanie macierzy"<<endl;
+  cout<<M1-M2<<endl;
+  cout<<"transpozycja macierzy"<<endl;
+  cout<<M2.transpozycja()<<endl;
+  cout<<"mnozenie macierzy przez wektor"<<endl;
+  cout<<M2*W4<<endl;
+   cout<<"mnozenie macierzy"<<endl;
+   cout<<M1*M2<<endl;
+  cout<<"wyznacznik zle "<<M1.Wyznacznik()<<endl;
 }
 

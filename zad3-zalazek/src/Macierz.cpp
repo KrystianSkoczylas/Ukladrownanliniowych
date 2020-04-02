@@ -1,12 +1,5 @@
 #include "Macierz.hh"
 
-
-/*
- *  Tutaj nalezy zdefiniowac odpowiednie metody
- *  klasy Macierz, ktore zawieraja wiecej kodu
- *  niz dwie linijki.
- *  Mniejsze metody mozna definiwac w ciele klasy.
- */
 std::istream& operator >> (std::istream &Strm, Macierz &Mac) /*wczytanie macierzy */
 {
   for(int i=0;i<ROZMIAR;++i)
@@ -24,9 +17,9 @@ std::ostream& operator << (std::ostream &Strm, const Macierz &Mac)/*wyswietlenie
     }
   return Strm;
 }
-
-const Macierz & Macierz::operator + (const Macierz & W) const
-{ //nie dziala
+//const Macierz & Macierz::operator + (const Macierz & W) const
+const Macierz  Macierz::operator + (const Macierz & W) const
+{ // dziala bez &
   Macierz wyn;
   for(int i=0;i<ROZMIAR;++i)
     {
@@ -37,24 +30,49 @@ const Macierz & Macierz::operator + (const Macierz & W) const
     }
   return wyn;
 }
-
-const Macierz & Macierz::operator - (const Macierz & W) const
-{
-  
+//const Macierz & Macierz::operator - (const Macierz & W) const
+const Macierz  Macierz::operator - (const Macierz & W) const
+{// dziala bez &
+  Macierz wyn;
+  for(int i=0;i<ROZMIAR;++i)
+    {
+      for(int j=0;j<ROZMIAR;++j)
+	{
+	  wyn[i][j]=tab[i][j]-W[i][j];
+	}
+    }
+  return wyn;
 }
-
-const Macierz & Macierz::operator * (const Macierz & W) const
-{
- 
+//const Macierz & Macierz::operator * (const Macierz & W) const
+const Macierz  Macierz::operator * (const Macierz & W) const /*mnozenie macierzy */
+{//dziala bez &
+  Macierz wyn;
+  for(int i=0;i<ROZMIAR;++i)
+    {
+      for(int j=0;j<ROZMIAR;++j)
+	{ 
+	  for(int k=0;k<ROZMIAR;++k)
+	  wyn[i][j]+=tab[i][k]*W[k][j];
+	}
+    }
+  return wyn;
 }
-
-const Wektor & Macierz::operator * (const Wektor & W) const
-{
- 
+//const Wektor & Macierz::operator * (const Wektor & W) const
+const Wektor  Macierz::operator * (const Wektor & W) const /*mnozenie macierzy przez wektor */
+{//dziala bez &
+  Wektor wyn;
+  for(int i=0;i<ROZMIAR;++i)
+    {
+      for(int j=0;j<ROZMIAR;++j)
+	{
+	  wyn[i]+=W[i]*tab[i][j];
+	}
+    }
+  return wyn;
 }
-
-const Macierz & Macierz::transpozycja() const
-{//nie dziala
+//const Macierz & Macierz::transpozycja() const
+const Macierz  Macierz::transpozycja() const
+{// dziala bez &
   Macierz wyn;
   for(int i=0;i<ROZMIAR;++i)
     {
@@ -68,7 +86,7 @@ const Macierz & Macierz::transpozycja() const
 
 const Macierz & Macierz::odwrotnosc() const
 {
-
+ 
 }
 
 double Macierz::Wyznacznik()const
