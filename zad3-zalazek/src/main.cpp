@@ -11,6 +11,8 @@ int main()
   Wektor W,W4;
   double a=2;
   Macierz M1,M2;
+  int wartosci[] = {1, -1, 2, 3, 5, -4, 2, 3, 5};
+  int k = 0;
   W[0] = 1;
   W[1] = 3;
   W[2] = 2;
@@ -45,6 +47,15 @@ int main()
   cout<<M2*W4<<endl;
    cout<<"mnozenie macierzy"<<endl;
    cout<<M1*M2<<endl;
-  cout<<"wyznacznik zle "<<M1.Wyznacznik()<<endl;
+   
+   for(int i=0;i<ROZMIAR;++i)
+     {
+       for(int j=0;j<ROZMIAR;++j)
+	 {	
+	   M1[i][j] = wartosci[k++];
+	 }
+     }
+   cout<<"wyznacznik macierzy: "<<endl<<M1<<endl;
+   cout<<M1.Wyznacznik()<<endl;
 }
 

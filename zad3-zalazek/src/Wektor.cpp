@@ -84,14 +84,6 @@ const Wektor  Wektor::operator - (const Wektor & W2) const /*odejmowanie wektoro
 Wektor iloczyn_wektorowy (Wektor & W1,Wektor & W2)/*jak dla przypadku ogolnego? */ 
 {
   Wektor wyn;
-  /*for(int i=0;i<ROZMIAR;++i)
-    {
-      fot(int j=0;j<ROZMIAR;++j)
-	{
-	  for(int k=ROZMIAR-1;k>ROZMIAR;--k)
-	    wyn[i]+=W1[i]*W2[k]-W1[k]*W2[];
-	}
-	}*/
   wyn[0]=W1[1]*W2[2]-W1[2]*W2[1];
   wyn[1]=-W1[0]*W2[2]+W1[2]*W2[0];
   wyn[2]=W1[0]*W2[1]-W1[1]*W2[0];

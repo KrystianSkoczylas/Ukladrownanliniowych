@@ -90,18 +90,56 @@ const Macierz & Macierz::odwrotnosc() const
 }
 
 double Macierz::Wyznacznik()const
-{double wyn;
-  if(ROZMIAR==1)
-    {return tab[ROZMIAR][ROZMIAR]; }
-  else//wzor na wyznacznik ?
+{
+  bool wylaczoneWiersze[ROZMIAR];
+  bool wylaczone_kolumny[ROZMIAR];
+  for(int i=0;i<ROZMIAR;++i)
+    {
+      wylaczoneWiersze[i] = false;
+      wylaczone_kolumny[i] = false;
+    }
+  return wyznacznikRekurencyjny(wylaczoneWiersze, wylaczone_kolumny);
+}
+
+double Macierz::wyznacznikRekurencyjny(bool wylaczoneWiersze[ROZMIAR], bool wylaczone_kolumny[ROZMIAR]) const
+{
+  if(sumujTrue(wylaczoneWiersze) == ROZMIAR-1 && sumujTrue(wylaczone_kolumny) == ROZMIAR-1)
     {
       for(int i=0;i<ROZMIAR;++i)
 	{
-	  for(int j=0;j<ROZMIAR;++j)
-	    {	
-	      wyn+=tab[i][j];
-	    }
+	  for(int j=0;j<ROZMIAR;++j) if(!wylaczoneWiersze[i] && !wylaczone_kolumny[j]) return tab[i][j];
 	}
+      exit(1);
     }
-  return wyn;
+	
+  int j = 0;
+  double det = 0;
+  int minus = 1;
+  int prawdziwy_nr_wiersza = 0;
+	
+  while(wylaczone_kolumny[j]) { j++; }
+	
+  wylaczone_kolumny[j] = true;
+  for(int i=0;i<ROZMIAR;++i)
+    {
+      if(wylaczoneWiersze[i]) continue;
+      if((prawdziwy_nr_wiersza)%2 == 0) minus = 1; else minus=-1;
+      wylaczoneWiersze[i] = true;
+      det += minus * tab[i][j] * wyznacznikRekurencyjny(wylaczoneWiersze, wylaczone_kolumny);
+      wylaczoneWiersze[i] = false;
+      prawdziwy_nr_wiersza++;
+    }
+  wylaczone_kolumny[j] = false;
+  return det;
 }
+
+int Macierz::sumujTrue(bool array[ROZMIAR]) const
+{
+  int suma = 0;
+  for(int i=0;i<ROZMIAR;++i)
+    {
+      if(array[i]) suma++;
+    }
+  return suma;
+}
+

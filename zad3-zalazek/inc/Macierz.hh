@@ -32,7 +32,10 @@ class Macierz {
   const Macierz  transpozycja() const;//OK bez &
   const Macierz & odwrotnosc() const;//wzor i wyznacznik ?
   
-  double Wyznacznik() const;//wzor ? 
+  double Wyznacznik() const;//OK ale dziwnie
+
+  double wyznacznikRekurencyjny(bool wylaczoneWiersze[ROZMIAR], bool wylaczone_kolumny[ROZMIAR]) const;
+  int sumujTrue(bool array[ROZMIAR]) const;
 };
 
 std::istream& operator >> (std::istream &Strm, Macierz &Mac);//OK
