@@ -29,7 +29,7 @@ int main()
   cout<<"mnozenie liczby "<<a<<" przez wektor :"<<a*W4<<endl;
   cout<<"dodanie wektorow "<<W+W4<<endl;
   cout<<"odejmowanie wektorow "<<W-W4<<endl;
-  cout<<"iloczyn wektorowy ale3X3 "<<iloczyn_wektorowy(W,W4)<<endl;
+  cout<<"iloczyn wektorowy ale TYLKO3X3 "<<iloczyn_wektorowy(W,W4)<<endl;
   
   M1[0][1]=4;
   M1[1][1]=1;

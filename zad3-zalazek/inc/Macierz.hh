@@ -7,6 +7,8 @@
 
 class Macierz {
   Wektor tab[ROZMIAR];
+  double wyznacznikRekurencyjny(bool wylaczoneWiersze[ROZMIAR], bool wylaczone_kolumny[ROZMIAR]) const;
+  int sumujTrue(bool array[ROZMIAR]) const;
   public:
   const Wektor & operator[] (int ind) const {
     if (ind < 0 || ind > ROZMIAR) {
@@ -24,18 +26,14 @@ class Macierz {
     return tab[ind];
   };
   
-  const Macierz  operator + (const Macierz & W) const;//OK bez & 
-  const Macierz  operator - (const Macierz & W) const;//OK bez & 
-  const Macierz  operator * (const Macierz & W) const; //OK bez & macierz razy macierz
-  const Wektor  operator * (const Wektor & W) const;//OK bez & macierz razy wektor
+  Macierz  operator + (const Macierz & W) const;//OK bez & bez const
+  Macierz  operator - (const Macierz & W) const;//OK bez & bez const
+  Macierz  operator * (const Macierz & W) const; //OK bez & macierz razy macierz bez const
+  Wektor  operator * (const Wektor & W) const;//OK bez & macierz razy wektor bez const
   
-  const Macierz  transpozycja() const;//OK bez &
-  const Macierz & odwrotnosc() const;//wzor i wyznacznik ?
+  Macierz  transpozycja() const;//OK bez &
   
-  double Wyznacznik() const;//OK ale dziwnie
-
-  double wyznacznikRekurencyjny(bool wylaczoneWiersze[ROZMIAR], bool wylaczone_kolumny[ROZMIAR]) const;
-  int sumujTrue(bool array[ROZMIAR]) const;
+  double Wyznacznik() const;//OK
 };
 
 std::istream& operator >> (std::istream &Strm, Macierz &Mac);//OK

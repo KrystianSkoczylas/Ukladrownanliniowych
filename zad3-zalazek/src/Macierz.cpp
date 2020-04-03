@@ -17,8 +17,8 @@ std::ostream& operator << (std::ostream &Strm, const Macierz &Mac)/*wyswietlenie
     }
   return Strm;
 }
-//const Macierz & Macierz::operator + (const Macierz & W) const
-const Macierz  Macierz::operator + (const Macierz & W) const
+
+ Macierz  Macierz::operator + (const Macierz & W) const
 { // dziala bez &
   Macierz wyn;
   for(int i=0;i<ROZMIAR;++i)
@@ -30,8 +30,8 @@ const Macierz  Macierz::operator + (const Macierz & W) const
     }
   return wyn;
 }
-//const Macierz & Macierz::operator - (const Macierz & W) const
-const Macierz  Macierz::operator - (const Macierz & W) const
+
+ Macierz  Macierz::operator - (const Macierz & W) const
 {// dziala bez &
   Macierz wyn;
   for(int i=0;i<ROZMIAR;++i)
@@ -43,8 +43,8 @@ const Macierz  Macierz::operator - (const Macierz & W) const
     }
   return wyn;
 }
-//const Macierz & Macierz::operator * (const Macierz & W) const
-const Macierz  Macierz::operator * (const Macierz & W) const /*mnozenie macierzy */
+
+ Macierz  Macierz::operator * (const Macierz & W) const /*mnozenie macierzy */
 {//dziala bez &
   Macierz wyn;
   for(int i=0;i<ROZMIAR;++i)
@@ -57,8 +57,8 @@ const Macierz  Macierz::operator * (const Macierz & W) const /*mnozenie macierzy
     }
   return wyn;
 }
-//const Wektor & Macierz::operator * (const Wektor & W) const
-const Wektor  Macierz::operator * (const Wektor & W) const /*mnozenie macierzy przez wektor */
+
+ Wektor  Macierz::operator * (const Wektor & W) const /*mnozenie macierzy przez wektor */
 {//dziala bez &
   Wektor wyn;
   for(int i=0;i<ROZMIAR;++i)
@@ -70,8 +70,8 @@ const Wektor  Macierz::operator * (const Wektor & W) const /*mnozenie macierzy p
     }
   return wyn;
 }
-//const Macierz & Macierz::transpozycja() const
-const Macierz  Macierz::transpozycja() const
+
+ Macierz  Macierz::transpozycja() const
 {// dziala bez &
   Macierz wyn;
   for(int i=0;i<ROZMIAR;++i)
@@ -82,11 +82,6 @@ const Macierz  Macierz::transpozycja() const
 	}
     }
   return wyn;
-}
-
-const Macierz & Macierz::odwrotnosc() const
-{
- 
 }
 
 double Macierz::Wyznacznik()const
