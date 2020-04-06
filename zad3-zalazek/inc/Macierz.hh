@@ -9,7 +9,7 @@ class Macierz {
   Wektor tab[ROZMIAR];
   double wyznacznikRekurencyjny(bool wylaczoneWiersze[ROZMIAR], bool wylaczone_kolumny[ROZMIAR]) const;
   int sumujTrue(bool array[ROZMIAR]) const;
-  public:
+public:
   const Wektor & operator[] (int ind) const {
     if (ind < 0 || ind > ROZMIAR) {
       std::cerr << "blad: poza zakresem" << std::endl;
@@ -20,7 +20,7 @@ class Macierz {
 
   Wektor & operator[] (int ind) {
     if (ind < 0 || ind > ROZMIAR) {
-       std::cerr << "blad: poza zakresem" <<  std::endl;
+      std::cerr << "blad: poza zakresem" <<  std::endl;
       exit(1);
     }
     return tab[ind];
@@ -39,6 +39,5 @@ class Macierz {
 std::istream& operator >> (std::istream &Strm, Macierz &Mac);//OK
 
 std::ostream& operator << (std::ostream &Strm, const Macierz &Mac);//OK
-
 
 #endif

@@ -24,8 +24,7 @@ double Wektor:: dlugosc() const
   double wyn=0;
   for (int i=0;i<ROZMIAR;++i)
     {
-      wyn += tab[i] * tab[i]; /*tutaj automatycznie wstawiane jest this */
-      //wyn += this->tab[i] * this->tab[i]; /*w przypadku przeslaniania zmeinnych trzeba recznie this*/
+      wyn += tab[i] * tab[i]; 
     }
   return sqrt(wyn);
 }
@@ -35,7 +34,6 @@ double Wektor::operator * (const Wektor & W2) const /*mnozenie wektorow iloczyn 
   double wyn;
   for (int i=0;i<ROZMIAR;++i) {
     wyn += tab[i] * W2.tab[i];
-    // wyn += tab[i] * W2[i];
   }
   return wyn;
 }

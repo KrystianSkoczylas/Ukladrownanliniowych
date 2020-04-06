@@ -1,6 +1,6 @@
 #include "UkladRownanLiniowych.hh"
 
-std::istream& operator >> (std::istream &Strm, UkladRownanLiniowych &UklRown)
+std::istream& operator >> (std::istream &Strm, UkladRownanLiniowych &UklRown)/*wczytanie ukladu*/
 {
    Macierz tmpA;
    Wektor tmpB;
@@ -10,7 +10,7 @@ std::istream& operator >> (std::istream &Strm, UkladRownanLiniowych &UklRown)
    return Strm;
 }
 
-std::ostream& operator << (std::ostream &Strm, const UkladRownanLiniowych &UklRown)\
+std::ostream& operator << (std::ostream &Strm, const UkladRownanLiniowych &UklRown)/*wyswietlenie ukladu*/
 {
   Strm<<"Macierz A:"<<std::endl<<UklRown.wez_macierz()<<std::endl;
   Strm<<"Wektor B:"<<std::endl<<UklRown.wez_wektor()<<std::endl;
