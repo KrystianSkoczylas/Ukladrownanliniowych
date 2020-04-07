@@ -65,7 +65,7 @@ std::ostream& operator << (std::ostream &Strm, const Macierz &Mac)/*wyswietlenie
     {
       for(int j=0;j<ROZMIAR;++j)
 	{
-	  wyn[i]+=W[j]*tab[j][i];//OK
+	  wyn[i]+=W[j]*tab[i][j];//OK OK
 	}
     }
   return wyn;

@@ -17,7 +17,7 @@ int main()
     cout<<"x"<<i<<", ";
   cout<<")"<<endl;
   cout<< U.Oblicz()<<endl;
-  blad=( U.wez_macierz().transpozycja() * U.Oblicz() -U.wez_wektor() );
+  blad=( U.wez_macierz() * U.Oblicz() -U.wez_wektor() );
   cout<<"Wektor bledu:   Ax-B  = ( "<<blad<<")"<<endl;
   cout<<"Dlugosc wektora bledu: ||Ax-B|| = "<<blad.dlugosc()<<endl;
 }
